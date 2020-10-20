@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>爱旅行的小琴兽</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link   rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">  <!--评论-->
+</head>
+<body>
+  <nav>
+    <a href="#/">首页</a>
+    <a href="#/菜单/">正文</a>
+  </nav>
+
+
+  <div id="app">加载中</div>
+  <script>
+    window.$docsify = {
+      
+      coverpage: true, //开启封面
+      coverpage: '封面.md',
+      name: '爱旅行的小琴兽',
+      repo: 'https://github.com/LH3028',
+      maxLevel:5, //最大支持渲染的标题层级
+      subMaxLevel:3, //侧边栏最大层级，最大6级
+      homepage: "README.md",
+      loadSidebar: true, // 侧边栏
+      loadSidebar:'_sidebar.md',
+      loadNavbar:true,
+
+      autoHeader: true,
+      notFoundPage: true, // 找不到页面时
+      auto2top: true,//切换页面后是否自动跳转到页面顶部
+      onlyCover:false,
+      mergeNavbar: true,//小屏设备下合并导航栏到侧边栏
+      topMargin: 90,
+      disqus: 'shortname', //评论
+     
+      alias:{
+        '/菜单/_sidebar.ma':'/_sidebar.md'
+      },
+      search: {
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: 'auto',
+        placeholder: '搜索',
+        noData: '未找到结果',
+        // 搜索标题的最大程级, 1 - 6
+        depth: 3,
+      }
+   
+
+
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <!--Java代码高亮-->
+  <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-python.js"></script>
+  <!--全文搜索,直接用官方提供的无法生效-->
+  <script src="https://cdn.bootcss.com/docsify/4.5.9/plugins/search.min.js"></script>
+  <!-- 复制到剪贴板 -->
+  <script src="//unpkg.com/docsify-copy-code"></script>
+  <!-- emoji -->
+  <script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
+  <!-- 图片缩放 -->
+  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+  <!-- 字数统计 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <!-- 评论 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/disqus.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: 'Github Application Client ID',
+    clientSecret: 'Github Application Client Secret',
+    repo: 'Github repo',
+    owner: 'Github repo owner',
+    admin: ['Github repo collaborators, only these guys can initialize github issues'],
+    // facebook-like distraction free mode
+    distractionFreeMode: false
+  })
+</script>
+
+</body>
+</html>
