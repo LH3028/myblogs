@@ -13,7 +13,6 @@
 <body>
   <nav>
     <a href="#/">首页</a>
-    <a href="#/菜单/">正文</a>
   </nav>
 
 
@@ -29,9 +28,7 @@
       subMaxLevel:3, //侧边栏最大层级，最大6级
       homepage: "README.md",
       loadSidebar: true, // 侧边栏
-      loadSidebar:'_sidebar.md',
-      loadNavbar:true,
-
+      loadNavbar:false,
       autoHeader: true,
       notFoundPage: true, // 找不到页面时
       auto2top: true,//切换页面后是否自动跳转到页面顶部
@@ -41,15 +38,19 @@
       disqus: 'shortname', //评论
      
       alias:{
-        '/菜单/_sidebar.ma':'/_sidebar.md'
+        '/菜单/_sidebar.md':'/_sidebar.md'
       },
+
+
+      search:'auto',
+
       search: {
         maxAge: 86400000, // 过期时间，单位毫秒，默认一天
         paths: 'auto',
-        placeholder: '搜索',
+        placeholder: '全文搜索',
         noData: '未找到结果',
         // 搜索标题的最大程级, 1 - 6
-        depth: 3,
+        depth: 6,
       }
    
 
@@ -75,8 +76,9 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/disqus.min.js"></script>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
 
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+
+ <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+ <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
 <script>
   const gitalk = new Gitalk({
     clientID: 'Github Application Client ID',
