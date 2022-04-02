@@ -1,4 +1,4 @@
-# mysql常用命令
+
 
 
 
@@ -245,3 +245,81 @@ insert into teacher values('''',''jack'',''深圳一中'',''1975-12-23'');
 2、将NAME设为长度为10的字符字段
 3、将ADDRESS设为长度50的字符字段，而且缺省值为深圳。
 4、将YEAR设为日期字段。
+
+
+
+
+
+# mysql-内连接、左连接、右连接以及全连接查询
+
+
+
+####  一、内连接查询
+
+##### 关键字：inner join on
+
+##### 语句：select *from a_table a inner join b_table b on a.a_is=b.b_id
+
+**说明**：组合两个表中的记录，返回关联字段相符的记录，也就是返回两个表的交集（阴影）部分。
+
+![img](https://s2.loli.net/2022/03/09/npUjMXT1iHQN7DW.png)
+
+
+
+![image-20211027165539105](https://s2.loli.net/2022/03/09/QC8MPXdA9b1NfUj.png)
+
+
+
+#### 二、左连接查询 left join
+
+##### 关键字：left join on / left outer join on
+
+##### 语句：SELECT  * FROM a_table a left join b_table b ON a.a_id = b.b_id;
+
+##### 说明： left join 是left outer join的简写，它的全称是左外连接，是外连接中的一种。 左(外)连接，左表(a_table)的记录将会全部表示出来，而右表(b_table)只会显示符合搜索条件的记录。右表记录不足的地方均为NULL
+
+<img src="https://s2.loli.net/2022/03/09/rbAgTLIOyKjsH5h.png" alt="img" style="zoom:150%;" />
+
+![image-20211027170527822](https://s2.loli.net/2022/03/09/MZDuT3BftkPVUCQ.png)
+
+#### 三、右连接 right join
+
+##### 关键字：right join on / right outer join on
+
+##### 语句：SELECT  * FROM a_table a right outer join b_table b on a.a_id = b.b_id;
+
+##### 说明：right join是right outer join的简写，它的全称是右外连接，是外连接中的一种。与左(外)连接相反，右(外)连接，左表(a_table)只会显示符合搜索条件的记录，而右表(b_table)的记录将会全部表示出来。左表记录不足的地方均为NULL。
+
+<img src="https://s2.loli.net/2022/03/09/uSd3nY9icWURHNe.png" alt="img" style="zoom:150%;" />
+
+
+
+![image-20211027170746217](https://s2.loli.net/2022/03/09/k3zteYiNdPUMj5Z.png)
+
+
+
+#### 四、全连接 union
+
+##### 关键字：union /union all
+
+##### 语句：(select colum1,colum2...columN from tableA ) union (select colum1,colum2...columN from tableB )
+
+         或 (select colum1,colum2...columN from tableA ) union all (select colum1,colum2...columN from tableB )；
+
+union语句注意事项：
+
+```sql
+     1.通过union连接的SQL它们分别单独取出的列数必须相同；
+
+     2.不要求合并的表列名称相同时，以第一个sql 表列名为准；
+
+     3.使用union 时，完全相等的行，将会被合并，由于合并比较耗时，一般不直接使用 union 进行合并，而是通常采用union all 进行合并；
+
+     4.被union 连接的sql 子句，单个子句中不用写order by ，因为不会有排序的效果。但可以对最终的结果集进行排序；
+
+       (select id,name from A order by id) union all (select id,name from B order by id); //没有排序效果
+
+       (select id,name from A ) union all (select id,name from B ) order by id; //有排序效果
+```
+
+<img src="https://s2.loli.net/2022/03/09/7Au6Ywxc9n8GjdZ.png" alt="image-20211027171337107" style="zoom:150%;" />
